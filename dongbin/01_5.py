@@ -24,12 +24,12 @@ print(result)
 ## 중복 순열
 
 from itertools import product
-result = list(product(data, repeat = 2))
+result = list(product(data, repeat = 2)) ## 2개를 뽑는 모든 순열 구하기 (중복허용)
 print(result)
 
 
 
 ## 중복 조합
 from itertools import combinations_with_replacement
-result = list(combinations_with_replacement(data, 2))
+result = list(combinations_with_replacement(data, 2)) ## 2개를 뽑는 모든 조합 구하기(중복허용)
 print(result)
