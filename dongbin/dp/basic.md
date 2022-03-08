@@ -86,3 +86,69 @@ public clas Main{
     - 따라서 메모이제이션은 다이나믹 프로그래밍에 국한된 개념은 아님.
     - 한 번 계산된 결과를 담아 놓기만 하고 다이나믹 프로그래밍을 위해 활용하지 않을 수도 있음
 
+
+## 피보나치 수열: 탑다운 다이나믹 프로그래밍 소스코드
+> 재귀함수
+
+```py
+d = [0] * 100
+
+def fibo(x):
+    if x == 1 or x == 2:
+        return 1
+    if d[x] != 0:
+        return d[x]
+    d[x] = fibo(x-1) + fibo(x-2)
+    return d[x]
+
+print(fibo(99))
+```
+
+## 피보나치 수열: 보텀업 다이나믹 프로그래밍 소스코드
+> 반복문
+
+```py
+d = [0] * 100
+d[1] = 1
+d[2] = 1
+n = 99
+
+for i in range(3, n+1):
+    d[i] = d[i-1] + d[i-2]
+print(d[n])
+```
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+long long d[100];
+int main(){
+    d[1] = 1;
+    d[2] = 1;
+    int n = 50;
+    // cpp 에서 99번째는 overflow 발생
+    for (int i = 3; i <= n; i++){
+        d[i] = d[i-1] + d[i-2];
+    }
+    cout << d[n] << '\n';
+    return 0;
+}
+```
+
+```java
+import java.util.*;
+public class Main{
+    public static long[] d = new long[100];
+    public static void main(String[] args){
+        d[1] = 1;
+        d[2] = 1;
+        int n= 50;
+        for(int i = 3; i <= n; i++){
+            d[i] = d[i-1] + d[i-2];
+        }
+        System.out.println(d[n]);
+    }
+}
+```
+
+
